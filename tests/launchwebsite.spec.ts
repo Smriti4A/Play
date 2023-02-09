@@ -31,7 +31,7 @@ const test = base.extend({
 });
 */
 
-test('go to the demo site', async () => {
+test('go to the demo site', async () => {  // Resusing setup of metamask from the SetupMeta.spec.ts file
     await common.BaseTest(page);
     const page= await context(newPage);
     await page.goto('https://brandextender.io/demo/');
@@ -44,7 +44,7 @@ test('go to the demo site', async () => {
     page.on('popup', async popup => {
     await newPage.waitForLoadState();
     console.log(await newPage.title());
-  }) // Created an array newPage to store the new page that opens after clicking on Metamask button
+  }) // This currently is not opening the metamask popup 
     
     await page.waitForTimeout(300000)
   });
