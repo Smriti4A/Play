@@ -13,7 +13,7 @@ await test.step('Start metamask', async ()=> {
     } });
   const page = await context.waitForEvent("page");
   console.log(await page.title());
-  /*await page.click("text=Get Started");
+  await page.click("text=Get Started");
   await page.click("text=I Agree");
   await page.click("text=Import wallet");
   await page.getByTestId('import-srp__srp-word-0').fill('attend');
@@ -35,8 +35,8 @@ await test.step('Start metamask', async ()=> {
  await page.getByRole('button',{ name: 'All Done'}).click();*/
  await page.getByRole('textbox',{name: 'Password'}).fill('Test@1234')
  await page.getByRole('button',{name :'Unlock'}).click();
- //await page.getByRole('button',{name :'Next'}).click();
- //await page.getByRole('button',{name :'Remind me later'}).click();
+ await page.getByRole('button',{name :'Next'}).click();
+ await page.getByRole('button',{name :'Remind me later'}).click();
  //page.on('dialog', dialog => dialog.accept());
  //await page.getByRole('button',{name: 'Restore'}).click();
  await page.getByTestId('network-droppo').click();
@@ -52,7 +52,7 @@ await test.step('Start metamask', async ()=> {
  await page.waitForLoadState();
   });
 
-/*test('load site', async()=>{
+/*test('load site', async()=>{  // This test is written in the other file.
  pagePromise = page.context().waitForEvent('page', p => p.url() =='https://brandextender.io/demo/');
  await pagePromise.goto('https://brandextender.io/demo/');
     await pagePromise.waitForTimeout(3000);
